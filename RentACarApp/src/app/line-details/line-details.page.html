@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>Detalle de Línea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="lineDetail">
+      <ion-card-header>
+          <ion-card-title>Detalles de la Línea</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <p><strong>Número de Línea:</strong> {{ lineDetail.numLinea }}</p>
+          <p><strong>Precio:</strong> {{ lineDetail.precio | currency }}</p>
+      </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="!lineDetail"> <ion-label>Cargando línea...</ion-label> </div>
+</ion-content>

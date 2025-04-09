@@ -1,0 +1,62 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+    --ion-default-md: true;
+    --ion-color-primary: #6200ea; // Deep purple
+    --ion-color-secondary: #03dac6; // Teal
+    --ion-color-tertiary: #ff0266; // Pink
+    --ion-color-success: #4caf50; // Green
+    --ion-color-warning: #ff9800; // Orange
+    --ion-color-danger: #f44336; // Red
+    --ion-color-light: #f5f5f5; // Light gray
+    --ion-color-dark: #212121; // Dark gray
+}
+
+ion-tab-bar {
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+ion-tab-button {
+    color: var(--ion-color-dark);
+}
+
+.material-card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    transition: all 0.3s ease-in-out;
+}
+
+button:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+          Perfil del Cliente
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+      <ion-toolbar>
+          <ion-title size="large">Perfil del Cliente</ion-title>
+      </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="client">
+      <ion-card class="material-card">
+          <ion-card-header>
+              <ion-card-title>{{ client.nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              <p><strong>DNI:</strong> {{ client.dni }}</p>
+              <p><strong>Dirección:</strong> {{ client.direccion }}</p>
+              <p><strong>Teléfono:</strong> {{ client.telefono }}</p>
+
+              <ion-list *ngIf="client.facturas && client.facturas.length > 0">
+                  <ion-list-header>
+                      <ion-label>Facturas</ion-label>
+                  </ion-list-header>
+                  <ion-item *ngFor="let invoice of client.facturas"
+                            (click)="seeInvoiceDetails(invoice)">
+                      <ion-label>
+                          <h2>{{ invoice.id }} - {{ invoice.fecha | date }}</h2>
+                          <p>Total: {{ invoice.dameTotal | currency }}</p>
+                      </ion-label>
+                  </ion-item>
+              </ion-list>
+              <ion-label *ngIf="!client.facturas || client.facturas.length === 0">No tiene facturas</ion-label>
+
+
+              <ion-list *ngIf="reservations && reservations.length > 0">
+                  <ion-list-header>
+                      <ion-label>Reservas</ion-label>
+                  </ion-list-header>
+                  <ion-item *ngFor="let reservation of reservations"
+                            (click)="seeReservationDetails(reservation)">
+                      <ion-label>
+                          <h2>Reserva #{{ reservation.id }}</h2>
+                          <p>Inicio: {{ reservation.inicio }}</p>
+                          <p>Final: {{ reservation.final }}</p>
+                      </ion-label>
+                  </ion-item>
+              </ion-list>
+              <ion-label *ngIf="!reservations || reservations.length === 0">No tiene reservas</ion-label>
+
+          </ion-card-content>
+      </ion-card>
+  </div>
+
+  <div *ngIf="!client"> <ion-label>Cargando perfil...</ion-label> </div>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detalles de Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="material-card" *ngIf="reservation">
+    <ion-card-header>
+      <ion-card-title>Reserva #{{ reservation.id }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Inicio:</strong> {{ reservation.inicio }}</p>
+      <p><strong>Final:</strong> {{ reservation.final }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="car">
+    <ion-card-header>
+      <ion-card-title>Datos del Coche Reservado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Número de Licencia:</strong> {{ car.numLicencia }}</p>
+      <p><strong>Categoría:</strong> {{ car.categoria }}</p>
+      <p><strong>Estado:</strong> {{ car.estado }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

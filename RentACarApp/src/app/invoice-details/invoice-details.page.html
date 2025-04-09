@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>Factura {{ invoice?.id }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="material-card" *ngIf="invoice">
+      <ion-card-header>
+          <ion-card-title>Detalles de la Factura</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <p><strong>Fecha:</strong> {{ invoice.fecha | date }}</p>
+          <p><strong>Total:</strong> {{ invoice.dameTotal | currency }}</p>
+          
+          <ion-list>
+              <ion-list-header>
+                  <ion-label>Lineas</ion-label>
+              </ion-list-header>
+              <ion-item *ngFor="let line of invoice.lineas" (click)="seeLineDetails(line)">
+                  <ion-label>
+                      <h2>Línea {{ line.numLinea }}</h2>
+                      <p>Precio: {{ line.precio | currency }}</p>
+                  </ion-label>
+              </ion-item>
+          </ion-list>
+      </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="!invoice"> <ion-label>Cargando factura...</ion-label> </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "RentACarApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

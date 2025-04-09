@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+        Facturas
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+      <ion-toolbar>
+          <ion-title size="large">Facturas</ion-title>
+      </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="client">
+      <ion-card class="material-card">
+          <ion-card-content>
+              <ion-list *ngIf="client.facturas && client.facturas.length > 0">
+                  <ion-item *ngFor="let invoice of client.facturas"
+                            (click)="seeInvoiceDetails(invoice)">
+                      <ion-label>
+                          <h2>{{ invoice.id }} - {{ invoice.fecha | date }}</h2>
+                          <p>Total: {{ invoice.dameTotal | currency }}</p>
+                      </ion-label>
+                  </ion-item>
+              </ion-list>
+              <ion-label *ngIf="!client.facturas || client.facturas.length === 0">No tiene facturas</ion-label>
+          </ion-card-content>
+      </ion-card>
+  </div>
+
+  <div *ngIf="!client"> <ion-label>Cargando reservas...</ion-label> </div>
+
+</ion-content>
